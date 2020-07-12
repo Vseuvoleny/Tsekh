@@ -1,0 +1,31 @@
+$text-color: #333333;
+$white-color: #fff;
+$secondary-color: #3454f5;
+$danger: #e46868;
+$placeholder: #999999;
+$background_lightBlue: #eff7ff;
+$hover: rgb(200, 114, 15);
+$transition: 0.4s linear all;
+
+@mixin flex_main($jc) {
+  display: flex;
+  justify-content: $jc;
+  align-items: center;
+}
+
+@mixin max-width($width) {
+  max-width: $width;
+  width: 100%;
+}
+
+@mixin background($url) {
+  background: url($url) no-repeat center;
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+}
