@@ -167,7 +167,7 @@ img {
   }
 }
 .present::before {
-  @include background("./images/bg-present.jpg");
+  @include background("..//images/bg-present.jpg");
 }
 .opportunities {
   margin-bottom: 10rem;
