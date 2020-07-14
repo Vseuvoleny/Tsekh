@@ -1,7 +1,7 @@
 @import "config";
 @font-face {
   font-family: "Gilroy Regular";
-  src: url("./Fonts/Gilroy-Regular.woff") format("woff");
+  src: url("../../Fonts/Gilroy-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -60,6 +60,20 @@ img {
   height: 7rem;
   @include flex_main(space-around);
   margin: 0 1rem;
+  @media screen and (max-width: 1019px) {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    & > *:not(:first-child) {
+      margin-top: 1rem;
+    }
+    .header_nav {
+      & > * {
+        margin: 1rem 0;
+      }
+      flex-direction: column;
+    }
+  }
 }
 .header_logo {
   cursor: pointer;
@@ -97,11 +111,19 @@ img {
   position: relative;
   align-items: center;
   height: 720px;
+  @media screen and (max-width: 1019px) {
+    & .top_article {
+      text-align: center;
+    }
+  }
   h1 {
     color: $text-color;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include max-width(647px);
     margin-bottom: 1rem;
+    @media screen and (max-width: 767px){
+      font-size: 2.5rem;
+    }
   }
   p {
     @include max-width(565px);
@@ -121,7 +143,7 @@ img {
 }
 
 .top_main::before {
-  @include background("./images/Mask Group.png");
+  @include background("../images/MaskGroup.png");
 }
 
 .problem_section {
@@ -136,6 +158,9 @@ img {
 }
 .problems_cards {
   padding-top: 10rem;
+  @media screen and (max-width: 1019px) {
+    text-align: center;
+  }
   article + article {
     margin-top: 5rem;
   }
@@ -143,9 +168,15 @@ img {
   h4 {
     margin: 1rem 0;
     @include max-width(326px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+    }
   }
   p {
     @include max-width(463px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+    }
   }
 }
 .present {
@@ -167,7 +198,7 @@ img {
   }
 }
 .present::before {
-  @include background("..//images/bg-present.jpg");
+  @include background("../images/bg-present.jpg");
 }
 .opportunities {
   margin-bottom: 10rem;
@@ -179,6 +210,9 @@ img {
   }
   & + .opportunities_card {
     margin-top: 8.75rem;
+    @media screen and (max-width: 1019px) {
+      margin-top: 1rem;
+    }
   }
   .logo_block_oppo {
     height: 477px;
@@ -191,6 +225,10 @@ img {
   }
   article {
     @include max-width(480px);
+    @media screen and (max-width: 1019px) {
+      text-align: center;
+      margin-top: 1rem;
+    }
     ul {
       padding: 0;
       font-size: 1.2rem;
@@ -237,10 +275,23 @@ img {
     "btn spn";
   grid-gap: 1.25rem;
   margin-top: 4rem;
+  @media screen and (max-width: 1019px) {
+    margin-top: 0;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, 70px);
+    grid-template-areas:
+      "name"
+      "tel"
+      "btn"
+      "spn";
+  }
 
   input[type="text"] {
     grid-area: name;
     @include max-width(287px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+    }
     padding: 0.8rem 0 0.8rem 1.4rem;
     &::placeholder {
       color: $placeholder;
@@ -249,6 +300,9 @@ img {
   input[type="tel"] {
     grid-area: tel;
     @include max-width(294px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+    }
     padding: 0.8rem 0 0.8rem 1.4rem;
     &::placeholder {
       color: $placeholder;
@@ -257,6 +311,9 @@ img {
   input[type="submit"] {
     grid-area: btn;
     @include max-width(287px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+    }
     background: #3454f5;
     border-radius: 5px;
     padding: 0.7rem 2.5rem;
@@ -265,6 +322,10 @@ img {
   span {
     grid-area: spn;
     @include max-width(257px);
+    @media screen and (max-width: 1019px) {
+      max-width: none;
+      text-align: center;
+    }
     color: $placeholder;
     font-size: 0.8rem;
     line-height: 24px;
@@ -275,8 +336,11 @@ img {
   color: $text-color;
   position: relative;
   padding: 5rem 0;
+  @media screen and (max-width: 1019px) {
+    justify-content: center;
+  }
   &::before {
-    background: #eff7ff;
+    background: $background_lightBlue;
     content: "";
     position: absolute;
     z-index: -2;
@@ -291,11 +355,17 @@ img {
   }
   .tech_steck {
     @include flex_main(space-between);
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
     img {
       padding: 0;
     }
     img + img {
-      padding-left: 15px;
+      padding-left: 1rem;
+      @media screen and (max-width: 767px) {
+        padding: 1rem 0 0 0;
+      }
     }
   }
 }
@@ -371,7 +441,6 @@ img {
 
   h2 {
     color: $white-color;
-    line-height: 1.1rem;
   }
   span {
     color: $white-color;
@@ -384,11 +453,18 @@ img {
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 3rem;
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      text-align: center;
+      &>*:not(:first-child){
+        margin-top: 1rem;
+      }
+    }
     span {
       font-size: 1.1rem;
       line-height: 28px;
     }
-    .price_box {
+     .price_box {
       margin-left: 2.5rem;
       margin-right: 1rem;
       background: $white-color;
@@ -398,11 +474,19 @@ img {
       font-weight: bold;
       font-size: 24px;
       line-height: 36px;
+      @media screen and (max-width: 767px){
+        margin: 1rem 0 0 0;
+      }
     }
   }
 }
 .price_form {
   margin-bottom: 1rem;
+  @media screen and (max-width: 767px){
+    &>*:not(:first-child){
+      margin-top: 1rem;
+    }
+  }
 }
 .input_box {
   input {
@@ -430,7 +514,7 @@ img {
 }
 
 .workers {
-  padding: 8rem 0;
+  padding: 4rem 0;
 
   h2 {
     margin-bottom: 3rem;
@@ -442,10 +526,20 @@ img {
   }
   .juniors {
     @include max-width(457px);
+    @media screen and (max-width: 767px){
+      padding: 0 1rem;
+    }
   }
 
   .anton {
     @include flex_main(space-between);
+    @media screen and (max-width: 1019px) {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+    @media screen and (max-width: 767px){
+      padding: 0 1rem;
+    }
     span {
       margin-left: 2rem;
     }
@@ -494,6 +588,12 @@ img {
   }
 }
 
+.desing_card + .desing_card {
+  @media screen and (max-width: 767px) {
+    margin-top: 1rem;
+  }
+}
+
 .footer {
   position: relative;
   color: $white-color;
@@ -508,9 +608,6 @@ img {
     left: 50%;
     margin-left: -50vw;
     width: 100vw;
-  }
-  img {
-    margin-bottom: 4.5rem;
   }
   a {
     color: $white-color;
@@ -538,7 +635,17 @@ img {
   flex-direction: column;
 }
 .social {
+  @media screen and (max-width: 767px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
   a + a {
+    @media screen and (max-width: 767px){
+      margin-left: 0;
+      margin-top: 1rem;
+    }
     margin-left: 1rem;
   }
 }
